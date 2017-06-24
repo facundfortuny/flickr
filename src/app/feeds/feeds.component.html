@@ -1,0 +1,23 @@
+<div class="container">
+    <div *ngFor="let feed of feeds" class="row">
+        <div class="col-3">
+            <a href="">
+                <img src="{{feed.media.m}}" alt="{{feed.title}}">
+            </a>
+        </div>
+        <div class="col-9">
+            <h2>{{feed.title}}</h2>
+            <div class="row">
+                <div class="col-3">
+                    Published: {{feed.published | date: 'd MMMM y' }} at {{feed.published | date: 'H:mm' }}
+                </div>
+                <div class="col-3">
+                    <a href="https://www.flickr.com/photos/{{feed.author_id}}" target="_blank">Post Author</a>
+                </div>
+                <div class="col-3">
+                    <a href="{{feed.link}}" target="_blank">View on Flickr</a>
+                </div>
+            </div>
+        </div>
+</div>
+
