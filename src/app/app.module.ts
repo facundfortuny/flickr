@@ -12,7 +12,8 @@ import { FeedsComponent } from './feeds/feeds.component';
     ],
     imports: [
         BrowserModule,
-        JsonpModule
+        JsonpModule,
+        RoutingModule
     ],
     providers: [],
     bootstrap: [AppComponent]
