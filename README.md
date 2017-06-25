@@ -12,7 +12,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4000/`.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+Or you can also use `npm start` that will execute `ng serve --port 4000`. Navigate to `http://localhost:4000/`.
 
 
 ### Technology stack
