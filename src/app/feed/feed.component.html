@@ -1,0 +1,16 @@
+<div class="card" style="width: 20rem;">
+    <img class="card-img-top" src="{{feed.media.m}}" alt="{{feed.title}}">
+    <div class="card-block">
+        <h4 class="card-title">{{feed.title}}</h4>
+        <div innerHTML="{{feed.description}}"></div>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{feed.author}}</li>
+        <li class="list-group-item">{{feed.published | date: 'd MMMM y' }} at {{feed.published | date: 'H:mm' }}</li>
+        <li class="list-group-item">{{feed.tags}}</li>
+    </ul>
+    <div class="card-block">
+        <a href="https://www.flickr.com/photos/{{feed.author_id}}" class="card-link">Post Author link</a>
+        <a href="{{feed.link}" class="card-link">Link to Flickr</a>
+    </div>
+</div>
