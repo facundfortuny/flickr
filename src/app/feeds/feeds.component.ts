@@ -1,9 +1,14 @@
-import { FeedsService } from './../services/feeds.service';
-import { Feed } from './../entities/feed/feed';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/switchMap';
+
+import { FeedsService } from './../services/feeds.service';
+import { Feed } from './../entities/feed/feed';
 
 @Component({
     selector: 'app-feeds',
@@ -13,17 +18,33 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class FeedsComponent implements OnInit {
     feeds: Feed[];
+    searchTag = new FormControl();
 
     constructor(
         private feedsService: FeedsService,
         private route: ActivatedRoute,
         private router: Router
-    ) { }
-
-    ngOnInit() {
+    ) {
         this.feedsService.getFeeds('space').subscribe((value) => {
             this.feeds = value;
-        })
+        });
+     }
+
+    ngOnInit() {
+        this.searchTag.valueChanges
+            .debounceTime(500)
+            .distinctUntilChanged()
+            .switchMap((query: string) => {
+                // if the user clean the search default to space.
+                if (query === '') {
+                    query = 'space';
+                }
+
+                return this.feedsService.getFeeds(query)
+            })
+            .subscribe((value) => {
+                this.feeds = value;
+            });
     }
 
     onSelect(feed: Feed) {

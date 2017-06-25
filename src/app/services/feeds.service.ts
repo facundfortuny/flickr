@@ -13,7 +13,7 @@ export class FeedsService {
         private jsonp: Jsonp
     ) {}
 
-    getFeeds(term): Observable<Feed[]> {
+    getFeeds(term: string): Observable<Feed[]> {
         const url = `${this.API_URL}?tags=${term}&tagmode=all&format=json&&jsoncallback=JSONP_CALLBACK`;
 
         return this.jsonp.request(url)
