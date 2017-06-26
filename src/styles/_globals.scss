@@ -1,20 +1,75 @@
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
- margin:0;
- padding:0;
- border:0;
- outline:0;
- font-size:100%;
- vertical-align:baseline;
- background:transparent;
+h1 {
+    font-size: 2.5rem;
+    background: black;
+    color: deeppink;
+    text-align: center;
+    padding: 15px;
+}
+
+.search-input {
+    width: 100%;
+    height: 70px;
+}
+
+.feeds-list {
+    border:1px solid black;
+    margin-bottom: 10px;
+}
+
+.feeds-list.image-feed {
+    padding: 1px;
+    margin-bottom: 0px;
+}
+
+.feeds-list.image-feed img {
+    width: 100%;
+    height: 120px;
+}
+
+.feeds-title {
+    font-size: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 15px;
+}
+
+.feeds-published {
+    margin: 0 auto;
+}
+.feeds-description {
+    margin: 0 auto;
+}
+
+@media only screen and (max-width : 799px) {
+    .feeds-description-above-800 {
+        display: none;
+    }
+}
+
+@media only screen and (min-width : 800px) {
+    .feeds-description-bellow-800 {
+        display: none;
+    }
+
+    .feeds-inline {
+        float: left;
+        margin: 10px;
+    }
+
+    .clearBoth {
+        clear: both;
+    }
+}
+
+.card {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+    width: 20rem;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
 }

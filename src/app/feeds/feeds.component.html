@@ -1,25 +1,43 @@
-<div class="container">
-    <div class="row">
-        <input type="search" [formControl]="searchTag">
+<div class="container search-input">
+    <div class="input-group input-group-md">
+        <span class="input-group-addon">Search Tag</span>
+        <input type="text" [formControl]="searchTag" class="form-control" placeholder="space">
     </div>
-    <div *ngFor="let feed of feeds" class="row">
-        <div class="col-3">
-            <div (click)="onSelect(feed)">
-                <img src="{{feed.media.m}}" alt="{{feed.title}}">
-            </div>
+</div>
+<div class="container">
+    <div *ngFor="let feed of feeds" class="feeds-list feed row">
+        <div class="feeds-list image-feed col-3">
+            <img src="{{feed.media.m}}" alt="{{feed.title}}" (click)="onSelect(feed)">
         </div>
         <div class="col-9">
-            <h2>{{feed.title}}</h2>
-            <div class="row">
-                <div class="col-3">
+            <h2 class="feeds-title" (click)="onSelect(feed)">{{feed.title}}</h2>
+            <div class="feeds-description-bellow-800">
+                <div class="row">
+                    <div class="feeds-published center-block" >
+                        Published: {{feed.published | date: 'd MMMM y' }} at {{feed.published | date: 'H:mm' }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" align="center">
+                        <a href="https://www.flickr.com/photos/{{feed.author_id}}" target="_blank" class="centered">Post Author</a>
+                    </div>
+                    <div class="col" align="center">
+                        <a href="{{feed.link}}" target="_blank" class="centered">View on Flickr</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feeds-description-above-800">
+                <div class="feeds-inline">
+                    <a href="https://www.flickr.com/photos/{{feed.author_id}}" target="_blank" class="centered">Post Author</a>
+                </div>
+                <div class="feeds-published feeds-inline" >
                     Published: {{feed.published | date: 'd MMMM y' }} at {{feed.published | date: 'H:mm' }}
                 </div>
-                <div class="col-3">
-                    <a href="https://www.flickr.com/photos/{{feed.author_id}}" target="_blank">Post Author</a>
+                <div class="feeds-inline">
+                    <a href="{{feed.link}}" target="_blank" class="centered">View on Flickr</a>
                 </div>
-                <div class="col-3">
-                    <a href="{{feed.link}}" target="_blank">View on Flickr</a>
-                </div>
+                <div class="clear-both"></div>
             </div>
         </div>
 </div>

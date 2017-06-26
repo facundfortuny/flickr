@@ -57,8 +57,7 @@ export class FeedsComponent implements OnInit {
         const params = {
             queryParams: {
                 'title': feed.title,
-                'media': feed.media,
-                'description': feed.description,
+                'image': feed.media.m,
                 'author': feed.author,
                 'published': feed.published,
                 'tags': feed.tags,
