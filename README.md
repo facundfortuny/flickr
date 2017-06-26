@@ -10,6 +10,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
 - [NPM Dependencies](package.json)
 
+
+## Prerequisites
+
+Have Angular CLI installed globaly that require Node 6.9.0 or higher, together with NPM 3 or higher.
+
+```bash
+npm install -g @angular/cli
+```
+
+And install all the npm dependencies:
+```bash
+npm install
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
